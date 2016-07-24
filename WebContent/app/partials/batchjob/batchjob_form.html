@@ -1,0 +1,62 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'BatchJob' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			
+			<div class="form-group">
+				<label for="batchJob_jobName" class="col-sm-2 control-label">{{ 'batchJob.jobName' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="batchJob_jobName" name="jobName" ng-model="batchJob.jobName" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="batchJob_fileName" class="col-sm-2 control-label">{{ 'batchJob.fileName' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="batchJob_fileName" name="fileName" ng-model="batchJob.fileName" class="form-control" maxLength="65" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="batchJob_data" class="col-sm-2 control-label">{{ 'batchJob.data' | translate }}</label>
+				<div class="col-sm-10">
+					<textarea id="batchJob_data" name="data" ng-model="batchJob.data" class="form-control" ></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="batchJob_datePlaced" class="col-sm-2 control-label">{{ 'batchJob.datePlaced' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="batchJob_datePlaced" bs-datepicker data-autoclose="1" ng-model="batchJob.datePlaced" name="datePlaced" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="batchJob_dateModified" class="col-sm-2 control-label">{{ 'batchJob.dateModified' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="batchJob_dateModified" bs-datepicker data-autoclose="1" ng-model="batchJob.dateModified" name="dateModified" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="batchJob_releaseNoteId" class="col-sm-2 control-label">{{ 'batchJob.releaseNoteId' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="batchJob_releaseNoteId" ng-model="batchJob.releaseNoteId" name="releaseNoteId" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="releaseNote in items.releaseNotes" title="{{releaseNote.label}}" ng-selected="{{releaseNote.value == batchJob.releaseNoteId}}" value="{{releaseNote.value}}">{{releaseNote.label}}</option>
+                    </select>
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(batchJob.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/batchJob">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

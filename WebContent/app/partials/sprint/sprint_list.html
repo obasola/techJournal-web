@@ -1,0 +1,32 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Sprint' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'sprint.id' | translate }}</th>
+						<th>{{ 'sprint.name' | translate }}</th>
+						<th>{{ 'sprint.comment' | translate }}</th>
+						<th>{{ 'sprint.startDate' | translate }}</th>
+						<th>{{ 'sprint.endDate' | translate }}</th>
+						<th>{{ 'sprint.datePlaced' | translate }}</th>
+						<th>{{ 'sprint.dateModified' | translate }}</th>
+						<th><a class="btn btn-info" href='#/sprint/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="sprint in sprints">
+						<td>{{sprint.id}}</td>
+						<td>{{sprint.name}}</td>
+						<td>{{sprint.comment}}</td>
+						<td>{{sprint.startDate | date:'shortDate'}}</td>
+						<td>{{sprint.endDate | date:'shortDate'}}</td>
+						<td>{{sprint.datePlaced | date:'shortDate'}}</td>
+						<td>{{sprint.dateModified | date:'shortDate'}}</td>
+						<td><a class="btn btn-info" href="#/sprint/{{sprint.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

@@ -1,0 +1,65 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'SourceCode' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			
+			<div class="form-group">
+				<label for="sourceCode_sourceName" class="col-sm-2 control-label">{{ 'sourceCode.sourceName' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="sourceCode_sourceName" name="sourceName" ng-model="sourceCode.sourceName" class="form-control" maxLength="65" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sourceCode_comment" class="col-sm-2 control-label">{{ 'sourceCode.comment' | translate }}</label>
+				<div class="col-sm-10">
+					<textarea id="sourceCode_comment" name="comment" ng-model="sourceCode.comment" class="form-control" ></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sourceCode_datePlaced" class="col-sm-2 control-label">{{ 'sourceCode.datePlaced' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="sourceCode_datePlaced" bs-datepicker data-autoclose="1" ng-model="sourceCode.datePlaced" name="datePlaced" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sourceCode_dateModified" class="col-sm-2 control-label">{{ 'sourceCode.dateModified' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="sourceCode_dateModified" bs-datepicker data-autoclose="1" ng-model="sourceCode.dateModified" name="dateModified" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sourceCode_sourceTypeId" class="col-sm-2 control-label">{{ 'sourceCode.sourceTypeId' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="sourceCode_sourceTypeId" ng-model="sourceCode.sourceTypeId" name="sourceTypeId" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="sourceType in items.sourceTypes" title="{{sourceType.label}}" ng-selected="{{sourceType.value == sourceCode.sourceTypeId}}" value="{{sourceType.value}}">{{sourceType.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sourceCode_techNoteId" class="col-sm-2 control-label">{{ 'sourceCode.techNoteId' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="sourceCode_techNoteId" ng-model="sourceCode.techNoteId" name="techNoteId" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="techNote in items.techNotes" title="{{techNote.label}}" ng-selected="{{techNote.value == sourceCode.techNoteId}}" value="{{techNote.value}}">{{techNote.label}}</option>
+                    </select>
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(sourceCode.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/sourceCode">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

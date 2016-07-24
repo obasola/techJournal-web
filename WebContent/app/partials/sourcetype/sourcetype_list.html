@@ -1,0 +1,22 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'SourceType' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'sourceType.id' | translate }}</th>
+						<th>{{ 'sourceType.codeName' | translate }}</th>
+						<th><a class="btn btn-info" href='#/sourceType/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="sourceType in sourceTypes">
+						<td>{{sourceType.id}}</td>
+						<td>{{sourceType.codeName}}</td>
+						<td><a class="btn btn-info" href="#/sourceType/{{sourceType.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

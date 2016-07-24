@@ -1,0 +1,30 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'RestCall' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'restCall.id' | translate }}</th>
+						<th>{{ 'restCall.restUrl' | translate }}</th>
+						<th>{{ 'restCall.apiKey' | translate }}</th>
+						<th>{{ 'restCall.comment' | translate }}</th>
+						<th>{{ 'restCall.datePlaced' | translate }}</th>
+						<th>{{ 'restCall.dateModified' | translate }}</th>
+						<th><a class="btn btn-info" href='#/restCall/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="restCall in restCalls">
+						<td>{{restCall.id}}</td>
+						<td>{{restCall.restUrl}}</td>
+						<td>{{restCall.apiKey}}</td>
+						<td>{{restCall.comment}}</td>
+						<td>{{restCall.datePlaced | date:'shortDate'}}</td>
+						<td>{{restCall.dateModified | date:'shortDate'}}</td>
+						<td><a class="btn btn-info" href="#/restCall/{{restCall.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

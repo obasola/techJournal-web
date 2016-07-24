@@ -1,0 +1,30 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'BatchJob' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'batchJob.id' | translate }}</th>
+						<th>{{ 'batchJob.jobName' | translate }}</th>
+						<th>{{ 'batchJob.fileName' | translate }}</th>
+						<th>{{ 'batchJob.data' | translate }}</th>
+						<th>{{ 'batchJob.datePlaced' | translate }}</th>
+						<th>{{ 'batchJob.dateModified' | translate }}</th>
+						<th><a class="btn btn-info" href='#/batchJob/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="batchJob in batchJobs">
+						<td>{{batchJob.id}}</td>
+						<td>{{batchJob.jobName}}</td>
+						<td>{{batchJob.fileName}}</td>
+						<td>{{batchJob.data}}</td>
+						<td>{{batchJob.datePlaced | date:'shortDate'}}</td>
+						<td>{{batchJob.dateModified | date:'shortDate'}}</td>
+						<td><a class="btn btn-info" href="#/batchJob/{{batchJob.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

@@ -1,0 +1,62 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'SqlScript' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			
+			<div class="form-group">
+				<label for="sqlScript_databaseName" class="col-sm-2 control-label">{{ 'sqlScript.databaseName' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="sqlScript_databaseName" name="databaseName" ng-model="sqlScript.databaseName" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sqlScript_script" class="col-sm-2 control-label">{{ 'sqlScript.script' | translate }}</label>
+				<div class="col-sm-10">
+					<textarea id="sqlScript_script" name="script" ng-model="sqlScript.script" class="form-control" ></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sqlScript_comment" class="col-sm-2 control-label">{{ 'sqlScript.comment' | translate }}</label>
+				<div class="col-sm-10">
+					<textarea id="sqlScript_comment" name="comment" ng-model="sqlScript.comment" class="form-control" ></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sqlScript_datePlaced" class="col-sm-2 control-label">{{ 'sqlScript.datePlaced' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="sqlScript_datePlaced" bs-datepicker data-autoclose="1" ng-model="sqlScript.datePlaced" name="datePlaced" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sqlScript_dateModified" class="col-sm-2 control-label">{{ 'sqlScript.dateModified' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="sqlScript_dateModified" bs-datepicker data-autoclose="1" ng-model="sqlScript.dateModified" name="dateModified" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sqlScript_releaseNoteId" class="col-sm-2 control-label">{{ 'sqlScript.releaseNoteId' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="sqlScript_releaseNoteId" ng-model="sqlScript.releaseNoteId" name="releaseNoteId" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="releaseNote in items.releaseNotes" title="{{releaseNote.label}}" ng-selected="{{releaseNote.value == sqlScript.releaseNoteId}}" value="{{releaseNote.value}}">{{releaseNote.label}}</option>
+                    </select>
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(sqlScript.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/sqlScript">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

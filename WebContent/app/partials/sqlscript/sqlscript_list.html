@@ -1,0 +1,30 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'SqlScript' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'sqlScript.id' | translate }}</th>
+						<th>{{ 'sqlScript.databaseName' | translate }}</th>
+						<th>{{ 'sqlScript.script' | translate }}</th>
+						<th>{{ 'sqlScript.comment' | translate }}</th>
+						<th>{{ 'sqlScript.datePlaced' | translate }}</th>
+						<th>{{ 'sqlScript.dateModified' | translate }}</th>
+						<th><a class="btn btn-info" href='#/sqlScript/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="sqlScript in sqlScripts">
+						<td>{{sqlScript.id}}</td>
+						<td>{{sqlScript.databaseName}}</td>
+						<td>{{sqlScript.script}}</td>
+						<td>{{sqlScript.comment}}</td>
+						<td>{{sqlScript.datePlaced | date:'shortDate'}}</td>
+						<td>{{sqlScript.dateModified | date:'shortDate'}}</td>
+						<td><a class="btn btn-info" href="#/sqlScript/{{sqlScript.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

@@ -1,0 +1,30 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'TechNote' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'techNote.id' | translate }}</th>
+						<th>{{ 'techNote.title' | translate }}</th>
+						<th>{{ 'techNote.sprint' | translate }}</th>
+						<th>{{ 'techNote.comment' | translate }}</th>
+						<th>{{ 'techNote.datePlaced' | translate }}</th>
+						<th>{{ 'techNote.dateModified' | translate }}</th>
+						<th><a class="btn btn-info" href='#/techNote/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="techNote in techNotes">
+						<td>{{techNote.id}}</td>
+						<td>{{techNote.title}}</td>
+						<td>{{techNote.sprint}}</td>
+						<td>{{techNote.comment}}</td>
+						<td>{{techNote.datePlaced | date:'shortDate'}}</td>
+						<td>{{techNote.dateModified | date:'shortDate'}}</td>
+						<td><a class="btn btn-info" href="#/techNote/{{techNote.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

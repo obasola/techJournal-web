@@ -1,0 +1,28 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'ReleaseNote' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'releaseNote.id' | translate }}</th>
+						<th>{{ 'releaseNote.ticketNumber' | translate }}</th>
+						<th>{{ 'releaseNote.datePlaced' | translate }}</th>
+						<th>{{ 'releaseNote.comment' | translate }}</th>
+						<th>{{ 'releaseNote.dateModified' | translate }}</th>
+						<th><a class="btn btn-info" href='#/releaseNote/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="releaseNote in releaseNotes">
+						<td>{{releaseNote.id}}</td>
+						<td>{{releaseNote.ticketNumber}}</td>
+						<td>{{releaseNote.datePlaced | date:'shortDate'}}</td>
+						<td>{{releaseNote.comment}}</td>
+						<td>{{releaseNote.dateModified | date:'shortDate'}}</td>
+						<td><a class="btn btn-info" href="#/releaseNote/{{releaseNote.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

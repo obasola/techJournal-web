@@ -1,0 +1,22 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Application' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'application.id' | translate }}</th>
+						<th>{{ 'application.name' | translate }}</th>
+						<th><a class="btn btn-info" href='#/application/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="application in applications">
+						<td>{{application.id}}</td>
+						<td>{{application.name}}</td>
+						<td><a class="btn btn-info" href="#/application/{{application.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

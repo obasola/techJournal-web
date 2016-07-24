@@ -1,0 +1,29 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'SourceType' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			
+			<div class="form-group">
+				<label for="sourceType_codeName" class="col-sm-2 control-label">{{ 'sourceType.codeName' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="sourceType_codeName" name="codeName" ng-model="sourceType.codeName" class="form-control" maxLength="45" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(sourceType.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/sourceType">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

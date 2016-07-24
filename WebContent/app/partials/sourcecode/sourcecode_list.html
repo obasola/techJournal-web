@@ -1,0 +1,28 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'SourceCode' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'sourceCode.id' | translate }}</th>
+						<th>{{ 'sourceCode.sourceName' | translate }}</th>
+						<th>{{ 'sourceCode.comment' | translate }}</th>
+						<th>{{ 'sourceCode.datePlaced' | translate }}</th>
+						<th>{{ 'sourceCode.dateModified' | translate }}</th>
+						<th><a class="btn btn-info" href='#/sourceCode/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="sourceCode in sourceCodes">
+						<td>{{sourceCode.id}}</td>
+						<td>{{sourceCode.sourceName}}</td>
+						<td>{{sourceCode.comment}}</td>
+						<td>{{sourceCode.datePlaced | date:'shortDate'}}</td>
+						<td>{{sourceCode.dateModified | date:'shortDate'}}</td>
+						<td><a class="btn btn-info" href="#/sourceCode/{{sourceCode.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

@@ -1,0 +1,71 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'TechNote' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			
+			<div class="form-group">
+				<label for="techNote_applicationId" class="col-sm-2 control-label">{{ 'techNote.applicationId' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="techNote_applicationId" ng-model="techNote.applicationId" name="applicationId" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="application in items.applications" title="{{application.label}}" ng-selected="{{application.value == techNote.applicationId}}" value="{{application.value}}">{{application.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="techNote_sprintId" class="col-sm-2 control-label">{{ 'techNote.sprintId' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="techNote_sprintId" ng-model="techNote.sprintId" name="sprintId" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="sprint in items.sprints" title="{{sprint.label}}" ng-selected="{{sprint.value == techNote.sprintId}}" value="{{sprint.value}}">{{sprint.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="techNote_title" class="col-sm-2 control-label">{{ 'techNote.title' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="techNote_title" name="title" ng-model="techNote.title" class="form-control" maxLength="200" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="techNote_sprint" class="col-sm-2 control-label">{{ 'techNote.sprint' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="techNote_sprint" name="sprint" ng-model="techNote.sprint" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="techNote_comment" class="col-sm-2 control-label">{{ 'techNote.comment' | translate }}</label>
+				<div class="col-sm-10">
+					<textarea id="techNote_comment" name="comment" ng-model="techNote.comment" class="form-control" ></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="techNote_datePlaced" class="col-sm-2 control-label">{{ 'techNote.datePlaced' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="techNote_datePlaced" bs-datepicker data-autoclose="1" ng-model="techNote.datePlaced" name="datePlaced" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="techNote_dateModified" class="col-sm-2 control-label">{{ 'techNote.dateModified' | translate }}</label>
+				<div class="col-sm-10">
+					<input id="techNote_dateModified" bs-datepicker data-autoclose="1" ng-model="techNote.dateModified" name="dateModified" class="form-control" />
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(techNote.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/techNote">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>

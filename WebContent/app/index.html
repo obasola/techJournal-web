@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>Application</title>
+
+	<!-- style -->
+	<link href="css/bootstrap-flatly.min.css" rel="stylesheet"  type="text/css" />
+	<link href="lib/angular-material/angular-material.css" rel="stylesheet"  type="text/css" />
+	<link href="css/bootstrap.min.css" rel="stylesheet"  type="text/css" />
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet"  type="text/css" />
+	<link href="css/bootstrap-datepicker.css" rel="stylesheet"  type="text/css" />
+	<link href="css/app.css" rel="stylesheet"  type="text/css" />
+	
+</head>
+<body>
+
+   <md-toolbar layout="row" class="md-whiteframe-z1">
+	      <md-button id="main" class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+	        <md-icon md-svg-icon="menu" ></md-icon>
+	      </md-button>
+ 
+	     <a href="conference">
+	     		 <img src="img/logo.png" alt="" />
+	     </a>
+	      <h3>Apptricity Notes</h3>
+    </md-toolbar>
+	<div>
+	    <span flex></span>
+	    <md-menu-bar>
+
+	      <md-menu>
+	      
+	        <button ng-click="$mdOpenMenu()">
+	          <i class="fa fa-align-right"></i> User Actions
+	        </button>
+	        <md-menu-content ng-controller="AppController">
+
+	          <md-menu-item>
+	            <md-menu>
+	              <md-button ng-click="$mdOpenMenu()">Admin Functions</md-button>
+	              <md-menu-content>
+	                <md-menu-item><md-button ng-click="showHomePage()">Home</md-button></md-menu-item>
+	                <md-menu-item><md-button ng-click="showSprintsPage()">Sprints</md-button></md-menu-item>
+	                <md-menu-item><md-button ng-click="showAppsPage()">Applications</md-button></md-menu-item>
+	                <md-menu-item><md-button ng-click="showNotesPage()">Tech Notes</md-button></md-menu-item>
+	                <md-menu-item><md-button ng-click="showReleasePage()">Release Notes</md-button></md-menu-item>
+	                <md-menu-item><md-button ng-click="showJobsPage()">Batch Jobs</md-button></md-menu-item>
+	                <md-menu-item><md-button ng-click="showRestPage()">Rest Calls</md-button></md-menu-item>
+	                <md-menu-item><md-button ng-click="showScriptsPage()">SQL Scripts</md-button></md-menu-item>
+	                <md-menu-item><md-button ng-click="showSourcesPage()">Source Code</md-button></md-menu-item>
+	                <md-menu-item><md-button ng-click="showTypesPage()">Source Types</md-button></md-menu-item>
+	              </md-menu-content>
+	            </md-menu>
+	          </md-menu-item>
+	          
+	           <md-menu-item>
+	            <md-menu>
+	              <md-button ng-click="$mdOpenMenu()">User Functions</md-button>
+	              <md-menu-content>
+	                <md-menu-item><md-button ng-click="showTeamHomePage('ravens')">Sprints</md-button></md-menu-item>
+	                <md-menu-item><md-button ng-click="showTeamHomePage('bengals')">Stories</md-button></md-menu-item>
+	                <md-menu-item><md-button ng-click="showTeamHomePage('browns')">Notes</md-button></md-menu-item>
+	                <md-menu-item><md-button ng-click="showTeamHomePage('steelers')">Reports</md-button></md-menu-item>
+	                
+	              </md-menu-content>
+	            </md-menu>
+	          </md-menu-item>
+	          </md-menu-content>
+	       </md-menu>
+	    </md-menu-bar>
+	</div>
+   
+	
+    <div class="container">
+		<div ng-view></div>
+	  	<div><span data-translate="app.version"></span>&nbsp;<span data-app-version></span></div>
+	</div>
+
+	<!-- javascript -->
+	<script src="lib/moment-with-langs.js"></script>
+	<script src="lib/validation.js"></script>
+	<script src="lib/jquery-1.10.2.min.js"></script>
+	<script src="lib/jquery-ui-1.10.4.custom.min.js"></script>
+  	<!-- In production use:
+  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  	-->
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular-route/angular-route.js"></script>
+	<script src="lib/angular-resource/angular-resource.js"></script>
+	<script src="lib/angular-cookies/angular-cookies.js"></script>
+	<script src="lib/angular-animate/angular-animate.js"></script>
+	<script src="lib/angular-aria/angular-aria.js"></script>
+	<script src="lib/angular-material/angular-material.js"></script>
+	<script src="lib/angular-translate/angular-translate.js"></script>
+	<script src="lib/angular-translate/angular-translate-storage-cookie.js"></script>
+	<script src="lib/angular-translate/angular-translate-storage-local.js"></script>
+	<script src="lib/angular-translate/angular-translate-loader-static-files.js"></script>
+	<script src="lib/angular-dynamic-locale/tmhDynamicLocale.js"></script>
+	<script src="lib/angular-strap/angular-strap.min.js"></script>
+	<script src="lib/angular-strap/angular-strap.tpl.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/i18n.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/messages_handler.js"></script>	
+	<script src="js/filters.js"></script>
+	<script src="js/directives.js"></script>
+	
+	<script src="js/application/application_module.js"></script>
+	<script src="js/application/application_factory.js"></script>
+	<script src="js/application/application_controller.js"></script>
+	<script src="js/batchjob/batchjob_module.js"></script>
+	<script src="js/batchjob/batchjob_factory.js"></script>
+	<script src="js/batchjob/batchjob_controller.js"></script>
+	<script src="js/releasenote/releasenote_module.js"></script>
+	<script src="js/releasenote/releasenote_factory.js"></script>
+	<script src="js/releasenote/releasenote_controller.js"></script>
+	<script src="js/restcall/restcall_module.js"></script>
+	<script src="js/restcall/restcall_factory.js"></script>
+	<script src="js/restcall/restcall_controller.js"></script>
+	<script src="js/sourcecode/sourcecode_module.js"></script>
+	<script src="js/sourcecode/sourcecode_factory.js"></script>
+	<script src="js/sourcecode/sourcecode_controller.js"></script>
+	<script src="js/sourcetype/sourcetype_module.js"></script>
+	<script src="js/sourcetype/sourcetype_factory.js"></script>
+	<script src="js/sourcetype/sourcetype_controller.js"></script>
+	<script src="js/sqlscript/sqlscript_module.js"></script>
+	<script src="js/sqlscript/sqlscript_factory.js"></script>
+	<script src="js/sqlscript/sqlscript_controller.js"></script>
+	<script src="js/technote/technote_module.js"></script>
+	<script src="js/technote/technote_factory.js"></script>
+	<script src="js/technote/technote_controller.js"></script>	
+	<script src="js/sprint/sprint_module.js"></script>
+	<script src="js/sprint/sprint_factory.js"></script>
+	<script src="js/sprint/sprint_controller.js"></script>
+</body>
+</html>
